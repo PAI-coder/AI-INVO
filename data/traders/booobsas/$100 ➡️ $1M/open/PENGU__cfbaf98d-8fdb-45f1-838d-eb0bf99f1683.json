@@ -1,0 +1,22 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "PENGU",
+  "direction": "short",
+  "leverage": 5,
+  "entryPrice": 0.00655,
+  "currentPrice": 0.006546,
+  "entrySize": 0.1000015218225318,
+  "positionSize": 0.0010033118,
+  "liquidationPrice": 0.007145454545454545,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "ZeVCoVAExi",
+  "baseId": "cfbaf98d-8fdb-45f1-838d-eb0bf99f1683",
+  "updatedAt": "2026-08-20T06:52:01.362Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "isAdded": false
+  }
+}

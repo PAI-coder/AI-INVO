@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Main",
+  "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+  "coin": "POL",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.081718,
+  "currentPrice": 0.08123,
+  "entrySize": 1.000210977708605,
+  "positionSize": 0.0101266701,
+  "liquidationPrice": 0.09926545454545452,
+  "priceTarget": 0.078815,
+  "stopLoss": null,
+  "baseShortId": "z920T8lmwH",
+  "baseId": "b0aded44-1a32-47c3-9b61-1e971f13bd39",
+  "updatedAt": "2026-08-17T18:34:39.131Z",
+  "fetchedAt": "2026-08-17T19:32:38.866Z",
+  "changes": {
+    "priceTarget": null
+  },
+  "closedAt": "2026-08-17T19:32:38.866Z",
+  "closingPrice": 0.08123
+}

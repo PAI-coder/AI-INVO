@@ -1,0 +1,24 @@
+{
+  "trader": "archiduc",
+  "portfolioTitle": "Scalp Company",
+  "portfolioId": "3de730c5-d1b9-4e5d-be79-66375fc02910",
+  "coin": "ARB",
+  "direction": "short",
+  "leverage": 9,
+  "entryPrice": 0.07568,
+  "currentPrice": 0.07506,
+  "entrySize": 0.9999700557023032,
+  "positionSize": 0.0107271791,
+  "liquidationPrice": 0.08010582010582011,
+  "priceTarget": 0.0747,
+  "stopLoss": null,
+  "baseShortId": "Krp66yqGsV",
+  "baseId": "301618b8-0769-4abf-8c74-485a42849099",
+  "updatedAt": "2026-08-18T09:17:35.048Z",
+  "fetchedAt": "2026-08-18T10:41:29.846Z",
+  "changes": {
+    "priceTarget": null
+  },
+  "closedAt": "2026-08-18T10:41:29.846Z",
+  "closingPrice": 0.07506
+}

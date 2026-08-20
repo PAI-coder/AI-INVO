@@ -1,0 +1,28 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Swings",
+  "portfolioId": "2a922a1e-79e8-4753-899b-9df65d1a2dc9",
+  "coin": "AVAX",
+  "direction": "long",
+  "leverage": 3,
+  "entryPrice": 7.7019699691835,
+  "currentPrice": 6.8189,
+  "entrySize": 9.994718784586205,
+  "positionSize": 0.0995520734,
+  "liquidationPrice": 5.1346466461223335,
+  "priceTarget": 24,
+  "stopLoss": null,
+  "baseShortId": "UyzVIE4wuL",
+  "baseId": "55418b85-dc09-4e67-8fb5-52e816f210d9",
+  "updatedAt": "2026-06-10T22:02:42.643Z",
+  "fetchedAt": "2026-08-20T07:48:23.861Z",
+  "changes": {
+    "entrySim": 17.141478657549943,
+    "entrySize": 10.00328897274269,
+    "entryPrice": 8.410141305256374,
+    "simIncrease": true,
+    "liquidationPrice": 5.606760870170916,
+    "livePriceAtChange": 6.3151,
+    "percentDifference": 6.024575904592158
+  }
+}

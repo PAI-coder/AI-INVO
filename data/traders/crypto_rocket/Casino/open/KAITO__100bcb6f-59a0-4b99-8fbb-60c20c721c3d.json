@@ -1,0 +1,22 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Casino",
+  "portfolioId": "f2887379-b0fc-4676-bd33-073befacc17c",
+  "coin": "KAITO",
+  "direction": "long",
+  "leverage": 2,
+  "entryPrice": 0.3591,
+  "currentPrice": 0.34396,
+  "entrySize": 5.00162927486105,
+  "positionSize": 0.0450775365,
+  "liquidationPrice": 0.1993,
+  "priceTarget": 0.56,
+  "stopLoss": null,
+  "baseShortId": "uUjx3UMj3D",
+  "baseId": "100bcb6f-59a0-4b99-8fbb-60c20c721c3d",
+  "updatedAt": "2026-08-16T09:45:29.035Z",
+  "fetchedAt": "2026-08-20T07:48:23.861Z",
+  "changes": {
+    "isAdded": false
+  }
+}

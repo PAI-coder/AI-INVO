@@ -1,0 +1,31 @@
+{
+  "trader": "archiduc",
+  "portfolioTitle": "Scalp Company",
+  "portfolioId": "3de730c5-d1b9-4e5d-be79-66375fc02910",
+  "coin": "SOL",
+  "direction": "short",
+  "leverage": 15,
+  "entryPrice": 79.43932389960301,
+  "currentPrice": 81.196,
+  "entrySize": 5.002485296630262,
+  "positionSize": 0.048577718,
+  "liquidationPrice": 82.98717328297234,
+  "priceTarget": 76.68,
+  "stopLoss": null,
+  "baseShortId": "QPhaKiiGsg",
+  "baseId": "b6e903a1-02b4-4c7c-85ba-1a6b4fa3e2d9",
+  "updatedAt": "2026-08-19T14:55:07.891Z",
+  "fetchedAt": "2026-08-19T15:26:48.252Z",
+  "changes": {
+    "entrySim": 5.69486883126693,
+    "entrySize": 2.000517645660047,
+    "entryPrice": 77.95013538903854,
+    "simIncrease": true,
+    "simDifference": 9.199960890738932,
+    "liquidationPrice": 81.218371269945,
+    "livePriceAtChange": 80.39,
+    "percentDifference": 3.7658488968863075
+  },
+  "closedAt": "2026-08-19T15:26:48.252Z",
+  "closingPrice": 81.196
+}

@@ -1,0 +1,29 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "WLD",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 0.35474611092943636,
+  "currentPrice": 0.36149,
+  "entrySize": 1.8064834484892036,
+  "positionSize": 0.018325254,
+  "liquidationPrice": 0.3730308214452751,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "LB1xGnD98O",
+  "baseId": "b8aeff1c-6e57-45ad-9882-f5a0319f5d2e",
+  "updatedAt": "2026-08-19T20:31:10.525Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "entrySim": 3522.7788812586705,
+    "entrySize": 0.997749985562041,
+    "entryPrice": 0.3490903705423889,
+    "simIncrease": true,
+    "simDifference": 3368.667689289561,
+    "liquidationPrice": 0.3668560398682092,
+    "livePriceAtChange": 0.36086,
+    "percentDifference": 1.0669220140000581
+  }
+}

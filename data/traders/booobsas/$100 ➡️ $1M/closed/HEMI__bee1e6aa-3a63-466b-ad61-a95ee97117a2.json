@@ -1,0 +1,31 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "HEMI",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.00894876492470371,
+  "currentPrice": 0.008836,
+  "entrySize": 1.0000264817328508,
+  "positionSize": 0.0122095512,
+  "liquidationPrice": 0.01027625670989456,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "PCWz3QXfSh",
+  "baseId": "bee1e6aa-3a63-466b-ad61-a95ee97117a2",
+  "updatedAt": "2026-08-19T12:11:50.454Z",
+  "fetchedAt": "2026-08-19T14:18:28.759Z",
+  "changes": {
+    "entrySim": 1841.1641059066394,
+    "entrySize": 0.500027992730316,
+    "entryPrice": 0.00852874905167226,
+    "simIncrease": true,
+    "simDifference": 2054.207575657293,
+    "liquidationPrice": 0.009777294036901451,
+    "livePriceAtChange": 0.009362,
+    "percentDifference": 0.6121651689189589
+  },
+  "closedAt": "2026-08-19T14:18:28.759Z",
+  "closingPrice": 0.008836
+}

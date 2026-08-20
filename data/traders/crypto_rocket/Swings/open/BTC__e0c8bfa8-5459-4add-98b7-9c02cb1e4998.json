@@ -1,0 +1,28 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Swings",
+  "portfolioId": "2a922a1e-79e8-4753-899b-9df65d1a2dc9",
+  "coin": "BTC",
+  "direction": "long",
+  "leverage": 3,
+  "entryPrice": 67465.24865027181,
+  "currentPrice": 69592,
+  "entrySize": 1.0729218841916115,
+  "positionSize": 0.0113071524,
+  "liquidationPrice": 44976.83243351454,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "x7Va6438QB",
+  "baseId": "e0c8bfa8-5459-4add-98b7-9c02cb1e4998",
+  "updatedAt": "2026-08-19T15:26:59.511Z",
+  "fetchedAt": "2026-08-20T07:48:23.861Z",
+  "changes": {
+    "entrySim": 16.11074090454233,
+    "entrySize": 9.999168456873551,
+    "simIncrease": false,
+    "simDifference": 14.545794921470021,
+    "liquidationPrice": null,
+    "livePriceAtChange": 67537,
+    "percentDifference": 9.655404776906487
+  }
+}

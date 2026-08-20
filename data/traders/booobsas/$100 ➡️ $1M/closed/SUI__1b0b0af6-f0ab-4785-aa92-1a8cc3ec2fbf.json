@@ -1,0 +1,24 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "SUI",
+  "direction": "long",
+  "leverage": 10,
+  "entryPrice": 0.65653,
+  "currentPrice": 0.68044,
+  "entrySize": 0.5000019105216806,
+  "positionSize": 0.0071853716,
+  "liquidationPrice": 0.6219852631578948,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "TCrAV0SxnV",
+  "baseId": "1b0b0af6-f0ab-4785-aa92-1a8cc3ec2fbf",
+  "updatedAt": "2026-08-19T09:51:07.968Z",
+  "fetchedAt": "2026-08-19T15:07:13.373Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-19T15:07:13.373Z",
+  "closingPrice": 0.68044
+}

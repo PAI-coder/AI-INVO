@@ -1,0 +1,9 @@
+{
+  "portfolios": [
+    { "trader": "booobsas", "portfolio": "$100 ➡️ $1M" }
+  ],
+  "network": "testnet",
+  "marginMode": "isolated",
+  "minNotionalUsd": 10,
+  "pollIntervalSec": 15
+}

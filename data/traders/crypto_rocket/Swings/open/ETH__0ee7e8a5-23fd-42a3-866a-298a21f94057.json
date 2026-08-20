@@ -1,0 +1,28 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Swings",
+  "portfolioId": "2a922a1e-79e8-4753-899b-9df65d1a2dc9",
+  "coin": "ETH",
+  "direction": "long",
+  "leverage": 3,
+  "entryPrice": 1905.172883849441,
+  "currentPrice": 2249.1,
+  "entrySize": 1.0001174390558862,
+  "positionSize": 0.0136083811,
+  "liquidationPrice": 1270.1152558996273,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "FqJQXte21j",
+  "baseId": "0ee7e8a5-23fd-42a3-866a-298a21f94057",
+  "updatedAt": "2026-07-15T12:57:11.552Z",
+  "fetchedAt": "2026-08-20T07:48:23.861Z",
+  "changes": {
+    "entrySim": 1.7829814874430805,
+    "entrySize": 1.2631092689985342,
+    "simIncrease": false,
+    "simDifference": 0.41974629517118633,
+    "liquidationPrice": null,
+    "livePriceAtChange": 1926.5,
+    "percentDifference": 0.2949840189961695
+  }
+}

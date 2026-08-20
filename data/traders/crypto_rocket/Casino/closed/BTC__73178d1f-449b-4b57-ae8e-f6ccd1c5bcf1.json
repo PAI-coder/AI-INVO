@@ -1,0 +1,25 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Casino",
+  "portfolioId": "f2887379-b0fc-4676-bd33-073befacc17c",
+  "coin": "BTC",
+  "direction": "short",
+  "leverage": 40,
+  "entryPrice": 68376,
+  "currentPrice": 68622,
+  "entrySize": 9.99857054172107,
+  "positionSize": 0.0926609928,
+  "liquidationPrice": 69205.97530864197,
+  "priceTarget": 66300,
+  "stopLoss": 68600,
+  "baseShortId": "R1DSivEOg4",
+  "baseId": "73178d1f-449b-4b57-ae8e-f6ccd1c5bcf1",
+  "updatedAt": "2026-08-19T17:05:45.894Z",
+  "fetchedAt": "2026-08-19T20:09:38.478Z",
+  "changes": {
+    "stopLoss": null,
+    "priceTarget": null
+  },
+  "closedAt": "2026-08-19T20:09:38.478Z",
+  "closingPrice": 68622
+}

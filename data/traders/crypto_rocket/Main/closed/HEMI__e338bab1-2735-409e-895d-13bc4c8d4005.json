@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Main",
+  "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+  "coin": "HEMI",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.008512,
+  "currentPrice": 0.00794,
+  "entrySize": 2,
+  "positionSize": 0.0240985814,
+  "liquidationPrice": 0.00969942857142857,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "2GXpvfsg8y",
+  "baseId": "e338bab1-2735-409e-895d-13bc4c8d4005",
+  "updatedAt": "2026-08-19T06:12:28.205Z",
+  "fetchedAt": "2026-08-19T09:12:34.256Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-19T09:12:34.256Z",
+  "closingPrice": 0.00794
+}

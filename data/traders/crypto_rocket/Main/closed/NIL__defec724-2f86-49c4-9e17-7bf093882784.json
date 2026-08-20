@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Main",
+  "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+  "coin": "NIL",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.051412,
+  "currentPrice": 0.05043,
+  "entrySize": 2.0001866530588193,
+  "positionSize": 0.0211225456,
+  "liquidationPrice": 0.05863314285714285,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "RuFaLVdM1F",
+  "baseId": "defec724-2f86-49c4-9e17-7bf093882784",
+  "updatedAt": "2026-08-17T19:04:17.567Z",
+  "fetchedAt": "2026-08-17T19:05:30.935Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-17T19:05:30.935Z",
+  "closingPrice": 0.05043
+}

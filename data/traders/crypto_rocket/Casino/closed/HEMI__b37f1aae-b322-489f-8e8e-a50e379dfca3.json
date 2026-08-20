@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Casino",
+  "portfolioId": "f2887379-b0fc-4676-bd33-073befacc17c",
+  "coin": "HEMI",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.007443,
+  "currentPrice": 0.007137,
+  "entrySize": 2.499620421868274,
+  "positionSize": 0.0280500492,
+  "liquidationPrice": 0.008513142857142856,
+  "priceTarget": 0.007,
+  "stopLoss": null,
+  "baseShortId": "pZyZ30fF3P",
+  "baseId": "b37f1aae-b322-489f-8e8e-a50e379dfca3",
+  "updatedAt": "2026-08-17T18:04:15.716Z",
+  "fetchedAt": "2026-08-17T19:39:44.490Z",
+  "changes": {
+    "priceTarget": null
+  },
+  "closedAt": "2026-08-17T19:39:44.490Z",
+  "closingPrice": 0.007137
+}

@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Main",
+  "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+  "coin": "CASHCAT",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.11507,
+  "currentPrice": 0.112965,
+  "entrySize": 0.9996939780133207,
+  "positionSize": 0.0105166888,
+  "liquidationPrice": 0.1315428571428571,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "0zWnL3DKOf",
+  "baseId": "76f9fd6c-200d-4f39-93e0-f000f24501b6",
+  "updatedAt": "2026-08-17T18:38:29.715Z",
+  "fetchedAt": "2026-08-17T19:10:45.786Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-17T19:10:45.786Z",
+  "closingPrice": 0.112965
+}

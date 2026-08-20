@@ -1,0 +1,30 @@
+{
+  "trader": "archiduc",
+  "portfolioTitle": "Scalp Company",
+  "portfolioId": "3de730c5-d1b9-4e5d-be79-66375fc02910",
+  "coin": "BTC",
+  "direction": "short",
+  "leverage": 27,
+  "entryPrice": 64588.626672811086,
+  "currentPrice": 64292,
+  "entrySize": 1.0000000000000002,
+  "positionSize": 0.0111730314,
+  "liquidationPrice": 66230.96889106945,
+  "priceTarget": 64287,
+  "stopLoss": null,
+  "baseShortId": "m8bmiCBAMA",
+  "baseId": "f7a9e8c8-4e2e-45ef-99ec-b64f6352204f",
+  "updatedAt": "2026-08-18T20:04:34.724Z",
+  "fetchedAt": "2026-08-19T03:06:17.120Z",
+  "changes": {
+    "entrySim": 7.17201188058339,
+    "entrySize": 2.542503422249502,
+    "simIncrease": false,
+    "simDifference": 4.678040196075846,
+    "liquidationPrice": null,
+    "livePriceAtChange": 64576,
+    "percentDifference": 1.847692777324448
+  },
+  "closedAt": "2026-08-19T03:06:17.120Z",
+  "closingPrice": 64292
+}

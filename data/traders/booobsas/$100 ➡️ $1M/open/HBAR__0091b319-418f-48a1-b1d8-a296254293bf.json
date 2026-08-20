@@ -1,0 +1,29 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "HBAR",
+  "direction": "short",
+  "leverage": 5,
+  "entryPrice": 0.0686200888242111,
+  "currentPrice": 0.071176,
+  "entrySize": 0.900042550549185,
+  "positionSize": 0.0083177193,
+  "liquidationPrice": 0.0749579772290228,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "siQ5Uewi98",
+  "baseId": "0091b319-418f-48a1-b1d8-a296254293bf",
+  "updatedAt": "2026-08-19T20:31:28.447Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "entrySim": 1681.7227321023774,
+    "entrySize": 0.5000175687265138,
+    "entryPrice": 0.067638,
+    "simIncrease": true,
+    "simDifference": 1431.3930179600088,
+    "liquidationPrice": 0.07378799999999999,
+    "livePriceAtChange": 0.069811,
+    "percentDifference": 0.45315753514536183
+  }
+}

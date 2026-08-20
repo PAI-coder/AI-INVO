@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Main",
+  "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+  "coin": "BOME",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.00089,
+  "currentPrice": 0.000857,
+  "entrySize": 2.0002489784256188,
+  "positionSize": 0.0221668899,
+  "liquidationPrice": 0.001016,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "ghoS4Gg0Wg",
+  "baseId": "03cdb7cd-cf98-4992-9aab-421ba4fdab7e",
+  "updatedAt": "2026-08-19T17:12:42.949Z",
+  "fetchedAt": "2026-08-19T17:53:14.792Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-19T17:53:14.792Z",
+  "closingPrice": 0.000857
+}

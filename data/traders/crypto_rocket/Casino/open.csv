@@ -1,0 +1,3 @@
+trader,portfolio,coin,direction,leverage,entryPrice,currentPrice,entrySize,positionSize,liquidationPrice,priceTarget,stopLoss,baseShortId,baseId,updatedAt,fetchedAt
+crypto_rocket,Casino,GALA,long,3,0.001407,0.001411,2.0000915973059543,0.0198353684,0.0011232000000000002,0.00146,,coqJKlOJ5i,35363654-8742-4063-81af-17e3a8b4f261,2026-08-18T05:47:00.260Z,2026-08-20T07:48:23.861Z
+crypto_rocket,Casino,KAITO,long,2,0.3591,0.34396,5.00162927486105,0.0450775365,0.1993,0.56,,uUjx3UMj3D,100bcb6f-59a0-4b99-8fbb-60c20c721c3d,2026-08-16T09:45:29.035Z,2026-08-20T07:48:23.861Z

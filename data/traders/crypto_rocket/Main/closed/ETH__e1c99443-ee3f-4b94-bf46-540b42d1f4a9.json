@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Main",
+  "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+  "coin": "ETH",
+  "direction": "short",
+  "leverage": 20,
+  "entryPrice": 1905,
+  "currentPrice": 1898.9,
+  "entrySize": 1.9999999999999998,
+  "positionSize": 0.0212182446,
+  "liquidationPrice": 1961.029411764706,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "UdIV9seSrY",
+  "baseId": "e1c99443-ee3f-4b94-bf46-540b42d1f4a9",
+  "updatedAt": "2026-08-17T10:44:52.691Z",
+  "fetchedAt": "2026-08-17T12:27:16.079Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-17T12:27:16.079Z",
+  "closingPrice": 1898.9
+}

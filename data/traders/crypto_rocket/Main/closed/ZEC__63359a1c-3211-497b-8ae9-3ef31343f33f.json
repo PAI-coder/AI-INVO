@@ -1,0 +1,30 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Main",
+  "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+  "coin": "ZEC",
+  "direction": "short",
+  "leverage": 8,
+  "entryPrice": 563.832651444548,
+  "currentPrice": 564.1,
+  "entrySize": 1.2984116702722854,
+  "positionSize": 0.0128556368,
+  "liquidationPrice": 634.3117328751165,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "ave9t6KdcW",
+  "baseId": "63359a1c-3211-497b-8ae9-3ef31343f33f",
+  "updatedAt": "2026-08-19T21:39:46.903Z",
+  "fetchedAt": "2026-08-19T23:24:02.464Z",
+  "changes": {
+    "entrySim": 36.207644268872436,
+    "entrySize": 2.8990936259476108,
+    "simIncrease": false,
+    "simDifference": 23.806736422336478,
+    "liquidationPrice": null,
+    "livePriceAtChange": 563.43,
+    "percentDifference": 2.4517387387254845
+  },
+  "closedAt": "2026-08-19T23:24:02.464Z",
+  "closingPrice": 564.1
+}

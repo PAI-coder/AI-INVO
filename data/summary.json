@@ -1,0 +1,57 @@
+{
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "root": "C:\\Users\\ADMIN\\Desktop\\Invo - Where Traders Are Made\\invo-copy-trader\\data\\traders",
+  "totalOpen": 20,
+  "closedThisRun": 0,
+  "portfolios": [
+    {
+      "trader": "crypto_rocket",
+      "portfolio": "Main",
+      "open": 2,
+      "closedThisRun": []
+    },
+    {
+      "trader": "crypto_rocket",
+      "portfolio": "Casino",
+      "open": 2,
+      "closedThisRun": []
+    },
+    {
+      "trader": "crypto_rocket",
+      "portfolio": "Swings",
+      "open": 5,
+      "closedThisRun": []
+    },
+    {
+      "trader": "archiduc",
+      "portfolio": "Scalp Company",
+      "open": 0,
+      "closedThisRun": []
+    },
+    {
+      "trader": "archiduc",
+      "portfolio": "Moon mission",
+      "open": 0,
+      "closedThisRun": []
+    },
+    {
+      "trader": "archiduc",
+      "portfolio": "100$ - 1000$ (Done!)",
+      "open": 0,
+      "closedThisRun": []
+    },
+    {
+      "trader": "booobsas",
+      "portfolio": "$100 ➡️ $1M",
+      "open": 11,
+      "closedThisRun": []
+    }
+  ],
+  "errors": [],
+  "layout": [
+    "data/traders/{trader}/{portfolio}/open/",
+    "data/traders/{trader}/{portfolio}/closed/",
+    "data/traders/{trader}/{portfolio}/open.csv",
+    "data/traders/{trader}/{portfolio}/closed.csv"
+  ]
+}

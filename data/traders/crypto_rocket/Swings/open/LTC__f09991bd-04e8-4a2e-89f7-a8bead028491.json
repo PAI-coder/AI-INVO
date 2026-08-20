@@ -1,0 +1,28 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Swings",
+  "portfolioId": "2a922a1e-79e8-4753-899b-9df65d1a2dc9",
+  "coin": "LTC",
+  "direction": "long",
+  "leverage": 4,
+  "entryPrice": 47.22510246802308,
+  "currentPrice": 46.7575,
+  "entrySize": 1,
+  "positionSize": 0.008727359,
+  "liquidationPrice": 35.41882685101731,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "8ZaxwJz1Ix",
+  "baseId": "f09991bd-04e8-4a2e-89f7-a8bead028491",
+  "updatedAt": "2026-07-18T17:44:21.728Z",
+  "fetchedAt": "2026-08-20T07:48:23.861Z",
+  "changes": {
+    "entrySim": 2.3760994539868627,
+    "entrySize": 1.6268073048909368,
+    "simIncrease": false,
+    "simDifference": 0.9897446638004215,
+    "liquidationPrice": null,
+    "livePriceAtChange": 47.611,
+    "percentDifference": 0.6760460956533724
+  }
+}

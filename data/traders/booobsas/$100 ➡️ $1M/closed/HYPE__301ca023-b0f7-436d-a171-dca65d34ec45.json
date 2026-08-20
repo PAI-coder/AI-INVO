@@ -1,0 +1,24 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "HYPE",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 61.865,
+  "currentPrice": 64.217,
+  "entrySize": 0.09999688735777275,
+  "positionSize": 0.0006125965,
+  "liquidationPrice": 64.83609523809525,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "z67tyJ4qrj",
+  "baseId": "301ca023-b0f7-436d-a171-dca65d34ec45",
+  "updatedAt": "2026-08-19T16:02:19.932Z",
+  "fetchedAt": "2026-08-19T19:13:01.576Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-19T19:13:01.576Z",
+  "closingPrice": 64.217
+}

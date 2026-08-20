@@ -1,0 +1,31 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "BTC",
+  "direction": "short",
+  "leverage": 40,
+  "entryPrice": 65014.511520986445,
+  "currentPrice": 65887,
+  "entrySize": 2.9806389340354023,
+  "positionSize": 0.0185699899,
+  "liquidationPrice": 65883.4080528024,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "7kxYEMuYDL",
+  "baseId": "e57f1fdf-3d77-4462-8b48-7dfb790d900d",
+  "updatedAt": "2026-08-19T14:11:11.123Z",
+  "fetchedAt": "2026-08-19T14:55:38.247Z",
+  "changes": {
+    "entrySim": 7746.462028775467,
+    "entrySize": 2.0007626379811265,
+    "entryPrice": 64768.715661189075,
+    "simIncrease": true,
+    "simDifference": 5065.845984068703,
+    "liquidationPrice": 65608.27973695667,
+    "livePriceAtChange": 65394,
+    "percentDifference": 1.5374820826842754
+  },
+  "closedAt": "2026-08-19T14:55:38.247Z",
+  "closingPrice": 65887
+}

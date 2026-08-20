@@ -1,6 +1,13 @@
 {
+  "scripts": {
+    "copy": "tsx src/commands/copy-bot.ts --watch",
+    "watch": "tsx src/commands/fetch-live-opens.ts --watch",
+    "watchdog": "tsx src/commands/watch-copy-bot.ts",
+    "hl-check": "tsx src/commands/hl-setup-check.ts"
+  },
   "dependencies": {
-    "hyperliquid": "^1.7.7"
+    "hyperliquid": "^1.7.7",
+    "ws": "^8.21.3"
   },
   "devDependencies": {
     "@types/node": "^25.5.2",

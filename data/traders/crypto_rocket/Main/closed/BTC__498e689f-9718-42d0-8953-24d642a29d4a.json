@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Main",
+  "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+  "coin": "BTC",
+  "direction": "short",
+  "leverage": 33,
+  "entryPrice": 64700,
+  "currentPrice": 64506,
+  "entrySize": 2,
+  "positionSize": 0.0219636414,
+  "liquidationPrice": 65837.6356154134,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "3eXwn992Iw",
+  "baseId": "498e689f-9718-42d0-8953-24d642a29d4a",
+  "updatedAt": "2026-08-18T14:58:22.947Z",
+  "fetchedAt": "2026-08-19T00:50:54.309Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-19T00:50:54.309Z",
+  "closingPrice": 64506
+}

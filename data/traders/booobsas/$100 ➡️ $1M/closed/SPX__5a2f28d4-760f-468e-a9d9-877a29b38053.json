@@ -1,0 +1,31 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "SPX",
+  "direction": "short",
+  "leverage": 5,
+  "entryPrice": 0.339981583813196,
+  "currentPrice": 0.37247,
+  "entrySize": 1.6990138670944308,
+  "positionSize": 0.0111024003,
+  "liquidationPrice": 0.372864292129769,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "Oqb65Tqj5r",
+  "baseId": "5a2f28d4-760f-468e-a9d9-877a29b38053",
+  "updatedAt": "2026-08-19T16:05:39.839Z",
+  "fetchedAt": "2026-08-20T00:27:23.972Z",
+  "changes": {
+    "entrySim": 3568.8418783438956,
+    "entrySize": 1.0000772377732798,
+    "entryPrice": 0.3312345228545469,
+    "simIncrease": true,
+    "simDifference": 2892.9923707762587,
+    "liquidationPrice": 0.3623561749755815,
+    "livePriceAtChange": 0.35143,
+    "percentDifference": 0.9146549744912296
+  },
+  "closedAt": "2026-08-20T00:27:23.972Z",
+  "closingPrice": 0.37247
+}

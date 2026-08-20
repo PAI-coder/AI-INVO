@@ -1,0 +1,29 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "NEAR",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 1.7273337960626962,
+  "currentPrice": 1.7349,
+  "entrySize": 0.24964401161534147,
+  "positionSize": 0.0026485682,
+  "liquidationPrice": 1.812414797523061,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "UerixYdCG5",
+  "baseId": "4476509f-1ec7-48e3-82f3-aa4cdf9add84",
+  "updatedAt": "2026-08-20T07:02:31.668Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "entrySim": 318.657349215264,
+    "entrySize": 0.10005895278215496,
+    "entryPrice": 1.6997,
+    "simIncrease": true,
+    "simDifference": 524.9745324982562,
+    "liquidationPrice": 1.7793809523809525,
+    "livePriceAtChange": 1.74455,
+    "percentDifference": 0.17254576893649062
+  }
+}

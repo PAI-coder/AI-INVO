@@ -1,0 +1,24 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "TRUMP",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 1.68205,
+  "currentPrice": 1.6592,
+  "entrySize": 0.09999787640603455,
+  "positionSize": 0.001136372,
+  "liquidationPrice": 1.7607857142857144,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "Rmnb1cft7t",
+  "baseId": "367d2940-5ba0-473f-a8e5-24e07aa4f78d",
+  "updatedAt": "2026-08-20T03:08:44.459Z",
+  "fetchedAt": "2026-08-20T03:12:03.527Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-20T03:12:03.527Z",
+  "closingPrice": 1.6592
+}

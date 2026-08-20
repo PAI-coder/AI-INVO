@@ -1,0 +1,26 @@
+{
+  "trader": "archiduc",
+  "traderId": "8850b275-a665-41fe-bf75-db836d5c2460",
+  "createdAt": "2026-08-17T08:08:17.023Z",
+  "portfolios": [
+    {
+      "portfolioTitle": "Scalp Company",
+      "portfolioId": "3de730c5-d1b9-4e5d-be79-66375fc02910",
+      "openCount": 0,
+      "updatedAt": "2026-08-20T07:48:08.261Z"
+    },
+    {
+      "portfolioTitle": "Moon mission",
+      "portfolioId": "e81a24bd-af8c-4a1c-be2d-2078ee40fb77",
+      "openCount": 0,
+      "updatedAt": "2026-08-20T07:48:08.261Z"
+    },
+    {
+      "portfolioTitle": "100$ - 1000$ (Done!)",
+      "portfolioId": "c16e0b2e-6a56-48eb-a696-a79d46a4b1de",
+      "openCount": 0,
+      "updatedAt": "2026-08-20T07:48:08.261Z"
+    }
+  ],
+  "updatedAt": "2026-08-20T07:48:08.261Z"
+}

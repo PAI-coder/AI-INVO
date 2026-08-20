@@ -1,307 +1,453 @@
-```
- ___  ________   ___      ___ ________          ________  ________  ________  ___    ___ 
-|\  \|\   ___  \|\  \    /  /|\   __  \        |\   ____\|\   __  \|\   __  \|\  \  /  /|
-\ \  \ \  \\ \  \ \  \  /  / | \  \|\  \       \ \  \___|\ \  \|\  \ \  \|\  \ \  \/  / /
- \ \  \ \  \\ \  \ \  \/  / / \ \  \\\  \       \ \  \    \ \  \\\  \ \   ____\ \    / / 
-  \ \  \ \  \\ \  \ \    / /   \ \  \\\  \       \ \  \____\ \  \\\  \ \  \___|\/  /  /  
-   \ \__\ \__\\ \__\ \__/ /     \ \_______\       \ \_______\ \_______\ \__\ __/  / /    
-    \|__|\|__| \|__|\|__|/       \|_______|        \|_______|\|_______|\|__||\___/ /     
-                                                                          \|___|/       
-```
+# Invo Copy Trader
 
-<div align="center">
+Automated copy-trading bot that watches traders on [Invo](https://app.invoapp.com), saves their live positions to disk, and mirrors **new** trades on [Hyperliquid](https://hyperliquid.xyz) **testnet** (paper money).
 
-**Autonomous AI Copy Trading Agent**
-
-*Reverse-engineered Invo social layer + Hyperliquid DEX execution*
-*Powered by Claude Code*
+**Current live setup:** copying **booobsas** portfolio **$100 ➡️ $1M** only. Other traders in `data/followed.json` are still fetched for monitoring but are **not** copied unless added to `copy-config.json`.
 
 ---
 
-`preflight` | `discover` | `follow` | `monitor` | `trade` | `close`
+## Table of contents
 
-</div>
+1. [What this bot does](#what-this-bot-does)
+2. [What works today](#what-works-today)
+3. [How to run (three terminals)](#how-to-run-three-terminals)
+4. [How it works (big picture)](#how-it-works-big-picture)
+5. [Copy trading rules](#copy-trading-rules)
+6. [Configuration](#configuration)
+7. [Project structure](#project-structure)
+8. [Data on disk](#data-on-disk)
+9. [Commands reference](#commands-reference)
+10. [First-time setup](#first-time-setup)
+11. [Daily usage & manual tools](#daily-usage--manual-tools)
+12. [Known limitations](#known-limitations)
+13. [Troubleshooting](#troubleshooting)
+14. [Security & disclaimer](#security--disclaimer)
+
+For developers and AI agents: see **[README-TECH.md](./README-TECH.md)** — module map, data flow, feature locations, state machine, and formulas.
 
 ---
 
-## What is this?
+## What this bot does
 
-A fully autonomous copy trading system that connects [Invo](https://app.invoapp.com) (social trading platform) with [Hyperliquid](https://hyperliquid.xyz) (decentralized perpetual exchange). An AI agent discovers top-performing traders, follows them, monitors their trades in real-time, and mirrors their positions — all through reverse-engineered APIs. No browser automation. Pure Node.js.
+| Step | What happens |
+|------|----------------|
+| 1 | **Fetcher** polls Invo every ~15s and writes open/closed positions to `data/traders/` |
+| 2 | **Copy-bot** reads those files (never calls Invo HTTP) and places orders on Hyperliquid testnet |
+| 3 | **Watchdog** checks copy-bot heartbeat every 30s and **alerts** if the bot dies or hangs (no auto-restart) |
 
-**How it works:** The agent scans Invo's social feed for verified trade signals from followed traders. When a trader opens or closes a position, the feed emits a post containing the full trade details (coin, direction, leverage, entry price) plus Invo metadata needed to record the copy trade. The agent evaluates the signal against your configured risk criteria and executes on Hyperliquid, recording the position on both platforms.
+When a trader opens a **new** position after the bot started, the copy-bot opens a matching position on HL. When they close, trim, change leverage, or set stop-loss on Invo, the bot reacts on the next snapshot. **Ctrl+C on copy-bot leaves HL positions open** — state is saved so restarts can resume tracking.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│   Claude Code (AI Agent)                                        │
-│   ├── Reasoning & risk analysis                                 │
-│   ├── Signal evaluation against user criteria                   │
-│   └── Autonomous trade execution                                │
-│         │                                                       │
-│         ▼                                                       │
-│   Node.js CLI                                                   │
-│   ├── preflight.ts  ── 10-point readiness check                 │
-│   ├── discover.ts   ── scan & rank 100+ traders                 │
-│   ├── follow.ts     ── social graph management                  │
-│   ├── monitor.ts    ── event-driven signal detection            │
-│   ├── trade.ts      ── open position (HL + Invo)                │
-│   └── close.ts      ── close position (HL + Invo)               │
-│         │                                                       │
-│    ┌────┴────────────────────┐                                  │
-│    ▼                         ▼                                  │
-│   Invo REST API         Hyperliquid SDK                         │
-│   (auto-refresh JWT)    (phantom agent signing)                 │
-│   ├── Discovery         ├── Meta & prices                       │
-│   ├── Social feed        ├── Set leverage                       │
-│   ├── Follow/unfollow   ├── Place orders (IOC)                  │
-│   ├── Position create   ├── Close positions                     │
-│   └── Position close    └── Account state                       │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+On **every copy-bot startup**, all Invo positions already open are **ignored** — only trades opened *after* that run are copied. This prevents restart from re-copying old trades.
 
-## Quick Start
+---
 
-```bash
-# Clone
-git clone https://github.com/AKCodez/invo-copy-trader.git
-cd invo-copy-trader
+## What works today
 
-# Install
-npm install
+| Feature | Status |
+|---------|--------|
+| Watch Invo live opens (~15s REST + optional 5s feed fast lane) | ✅ |
+| Save positions to folders, CSV, JSON | ✅ |
+| Detect opens / closes on disk (`closed/` + `closed.csv`) | ✅ |
+| Sync feed history (`sync-traders.ts`) | ✅ |
+| HL testnet connect, balance, manual trade/close | ✅ |
+| **Auto copy: new Invo open → HL testnet order** | ✅ |
+| Ignore existing Invo opens on startup (baseline) | ✅ |
+| Position sizing: trader `entrySize` % → HL account % | ✅ |
+| $10 HL minimum notional fallback | ✅ |
+| Close when Invo position disappears | ✅ |
+| Resize when trader changes `entrySize` (trim/add) | ✅ Implemented |
+| Stop-loss trigger on HL when Invo sets `stopLoss` | ✅ Implemented |
+| Take-profit: reacts to Invo trim via resize (no HL TP order) | ✅ By design |
+| Leverage sync (capped to HL `maxLeverage`) | ✅ Implemented |
+| Isolated margin mode | ✅ |
+| Skip coins not on HL | ✅ |
+| Skip when margin insufficient | ✅ |
+| Detect our HL liquidation vs Invo still open | ✅ |
+| Resume tracking after restart if HL position still open | ✅ |
+| Order timeout (90s) so one stuck order cannot freeze bot | ✅ |
+| Heartbeat file + alert-only watchdog | ✅ |
+| `close-manual.ts` — close all HL + reset copy state | ✅ |
+| Mainnet copy | ❌ Refused by copy-bot (testnet only) |
 
-# Configure (see Credentials section below)
-cp .env.example .env
-# Edit .env with your credentials
+---
 
-# Pre-flight check
-npx tsx src/commands/preflight.ts
+## How to run (three terminals)
 
-# Run via Claude Code skill
-/invo-copy-trade
+All commands from the project folder:
+
+```powershell
+cd "C:\Users\ADMIN\Desktop\Invo - Where Traders Are Made\invo-copy-trader"
 ```
 
-<!-- SKILL_INSTALL_PLACEHOLDER -->
-<!-- Installation instructions for the Claude Code skill will be added here once published to the skills marketplace. -->
+**Terminal 1 — Invo fetcher** (talks to Invo API):
 
-## Commands
-
-All commands run via `npx tsx src/commands/<cmd>.ts`.
-
-| Command | Purpose | Example |
-|---|---|---|
-| `preflight.ts` | Full readiness check (10 checks) | `npx tsx src/commands/preflight.ts` |
-| `verify.ts` | Endpoint health check (8 endpoints) | `npx tsx src/commands/verify.ts` |
-| `discover.ts` | Scan & rank top traders | `npx tsx src/commands/discover.ts` |
-| `follow.ts` | Follow/unfollow traders | `npx tsx src/commands/follow.ts follow <userId>` |
-| `monitor.ts` | Real-time signal monitor | `npx tsx src/commands/monitor.ts '["portfolioId"]'` |
-| `monitor.ts` | Feed + trade polling | `npx tsx src/commands/monitor.ts '["pId"]' '[{"baseShortId":"x","mimicStartedAt":"..."}]'` |
-| `monitor.ts` | Wait-for-signal mode | `npx tsx src/commands/monitor.ts --wait-for-signal '["id"]'` |
-| `trade.ts` | Open a position | `npx tsx src/commands/trade.ts SOL long 0.14 5` |
-| `close.ts` | Close a position | `npx tsx src/commands/close.ts SOL [baseShortId]` |
-
-## Signal Detection
-
-The monitor watches the Invo social feed for verified trade signals from followed traders. Each signal contains:
-
-```
-Feed post (postTypeId: "investment" | "update")
-  └── update
-      ├── ticker          → coin (SOL, BTC, ETH)
-      ├── directionLong   → true = long, false = short
-      ├── leverage         → leverage used
-      ├── entryPrice       → entry price
-      ├── closingPrice     → exit price (on close)
-      ├── isOpen           → position state
-      ├── verifiedTrade    → confirmed real Invo trade
-      ├── portfolio.id     → portfolioId (for mimicMeta)
-      ├── owner.id         → creatorInvoUserId (for mimicMeta)
-      ├── baseId           → trade base ID (for mimicMeta)
-      └── baseShortId      → needed to close on Invo
+```powershell
+npm run watch
+# or: npx tsx src/commands/fetch-live-opens.ts --watch
 ```
 
-**Two monitor modes:**
+**Terminal 2 — Copy bot** (talks to Hyperliquid only):
 
-| Mode | Behavior | Use case |
-|---|---|---|
-| Default | Runs forever, prints JSON lines | Manual monitoring, log tailing |
-| `--wait-for-signal` | Exits after first new signal | Agent auto-notify (zero token burn while waiting) |
-
-In `--wait-for-signal` mode, the Node.js process polls server-side (free) and the AI agent is idle until a signal arrives. Event-driven, not polling-driven.
-
-## Copy Trading Flow
-
-```
-Signal detected: @trader opened SOL long 8x
-  │
-  ├── 1. Evaluate against locked-in criteria
-  │      ├── Leverage ≤ max? (e.g., 8x ≤ 20x ✓)
-  │      ├── Asset allowed? (SOL not blocked ✓)
-  │      ├── Trader WR ≥ auto-copy threshold? (86% ≥ 80% ✓)
-  │      └── Position size within limit? (30% of balance ✓)
-  │
-  ├── 2. Execute on Hyperliquid
-  │      ├── Set leverage (8x isolated)
-  │      ├── Place IOC limit order (+2% slippage, builder fee)
-  │      └── Verify fill
-  │
-  ├── 3. Record on Invo
-  │      ├── POST /dex/position/create
-  │      ├── mimicMeta from signal (portfolioId, ownerId, baseId)
-  │      └── Save baseShortId for exit
-  │
-  └── 4. Monitor for exit
-         └── When trader closes → mirror the exit via close.ts
+```powershell
+npm run copy
+# or: npx tsx src/commands/copy-bot.ts --watch
 ```
 
-**Exit strategy: mirror the trader.** We close when they close. No independent TP/SL — the whole point of copy trading is trusting the trader's entries AND exits.
+**Terminal 3 — Watchdog** (alerts only, optional but recommended):
 
-## Credentials Setup
+```powershell
+npm run watchdog
+# or: npx tsx src/commands/watch-copy-bot.ts
+```
 
-Create a `.env` file in the project root:
+**npm shortcuts:** `npm run watch` | `npm run copy` | `npm run watchdog` | `npm run hl-check`
+
+Keep all three running for 24/7 operation. If copy-bot stops, the watchdog writes to `data/copy/alerts.log` — restart copy-bot manually.
+
+---
+
+## How it works (big picture)
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  INVO (read-only)                                                │
+│  • INVO_REFRESH_TOKEN → API calls                                │
+│  • get_investments (isOpen) → live positions per portfolio       │
+│  • Following feed fast lane (~5s) + REST backup (~15s)           │
+└────────────────────────────┬─────────────────────────────────────┘
+                             │
+                             ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  fetch-live-opens.ts --watch  (Terminal 1)                       │
+│  • Writes data/traders/{trader}/{portfolio}/open|closed|csv       │
+│  • Updates data/summary.json (fetchedAt timestamp)               │
+│  • Holds data/invo-poll.lock as owner "fetcher"                  │
+└────────────────────────────┬─────────────────────────────────────┘
+                             │ disk only
+                             ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  copy-bot.ts --watch  (Terminal 2)                             │
+│  • Watches data/summary.json (file watch + 1s poll backup)       │
+│  • Baseline on startup → ignoredBaseIds for existing opens       │
+│  • copyTick → open / close / resize / SL on Hyperliquid          │
+│  • Heartbeat: data/copy/copy-bot.heartbeat.json every 30s        │
+└────────────────────────────┬─────────────────────────────────────┘
+                             │
+                             ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  HYPERLIQUID testnet                                             │
+│  • Market orders (2% slippage IOC) via API wallet (HL_AGENT_KEY) │
+│  • One-way mode — same-coin copies netted into one HL position   │
+└──────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────┐
+│  watch-copy-bot.ts  (Terminal 3)                                 │
+│  • Reads heartbeat; alerts if stale >120s or pid dead              │
+│  • 90s startup grace; does NOT restart copy-bot                  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+**Important:** Invo and Hyperliquid are separate systems. HL balance appears on the HL Portfolio page, not in MetaMask (unless you use the same wallet).
+
+---
+
+## Copy trading rules
+
+### Who is copied
+
+Defined in **`copy-config.json`** (not `followed.json`):
+
+```json
+{
+  "portfolios": [
+    { "trader": "booobsas", "portfolio": "$100 ➡️ $1M" }
+  ],
+  "network": "testnet",
+  "marginMode": "isolated",
+  "minNotionalUsd": 10,
+  "pollIntervalSec": 15
+}
+```
+
+`followed.json` controls which traders the **fetcher** polls. `copy-config.json` controls which portfolios the **copy-bot** trades.
+
+### Sizing
+
+1. **Primary:** `HL accountValue × (entrySize / 100)` — same portfolio % as the trader uses on Invo.
+2. **Fallback:** If `size × orderLimitPx < $10`, size up to meet Hyperliquid's $10 minimum (checked against limit price with 2% slippage, not mid).
+
+### Startup baseline (ignore existing opens)
+
+On each copy-bot process start, every Invo position already open (and not already tracked as `open` in state) is added to `ignoredBaseIds`. Only positions that appear **after** that baseline are copied.
+
+### Shutdown (Ctrl+C)
+
+Copy-bot **does not close** HL positions. It saves `state.json` with entry prices and leaves positions open. On next start, baseline ignores old Invo opens; if HL still has a position for a live Invo trade, tracking **resumes**.
+
+### Same coin, multiple Invo trades
+
+Hyperliquid is **one-way** (no hedge mode). Multiple Invo `baseId` copies on the same coin/direction are tracked separately in `state.json` but appear as **one net HL position**.
+
+---
+
+## Configuration
+
+| File | Purpose |
+|------|---------|
+| `.env` | Secrets: `INVO_REFRESH_TOKEN`, `HL_NETWORK`, `WALLET_ADDRESS`, `HL_AGENT_KEY` |
+| `copy-config.json` | Which portfolios to copy + HL settings |
+| `data/followed.json` | Traders the fetcher watches on Invo |
+
+### `.env` minimum
 
 ```env
-INVO_REFRESH_TOKEN=eyJ...   # 350-day JWT (see below)
-HL_AGENT_KEY=0x...           # Hyperliquid phantom agent key
-WALLET_ADDRESS=0x...         # Master wallet address
+INVO_REFRESH_TOKEN=eyJ...
+HL_NETWORK=testnet
+WALLET_ADDRESS=0x...
+HL_AGENT_KEY=0x...
 ```
 
-### How to obtain each credential
+---
 
-**`INVO_REFRESH_TOKEN`** (valid ~350 days)
-1. Open `app.invoapp.com` in Chrome, log in
-2. F12 -> Application -> Local Storage -> `app.invoapp.com`
-3. The value of `FlutterSecureStorage.REFRESH_TOKEN` is AES-GCM encrypted
-4. Decrypt using the key in the `FlutterSecureStorage` entry (base64 AES-GCM key)
-5. The decrypted value is a JWT — that's your refresh token
-
-**`HL_AGENT_KEY`** (valid ~90 days)
-1. F12 -> Application -> IndexedDB -> `invo_hl_agents` -> `agents` -> `current`
-2. Copy the `privateKey` field (starts with `0x`)
-3. This is a secp256k1 key authorized as a phantom agent sub-key
-
-**`WALLET_ADDRESS`**
-1. Visible in your Invo profile page
-2. Or in the JWT payload under `trading_account.wallet_address`
-
-### Credential lifespan
-
-| Credential | TTL | Renewal |
-|---|---|---|
-| `INVO_REFRESH_TOKEN` | ~350 days | Re-extract from browser |
-| `HL_AGENT_KEY` | ~90 days | Re-authorize in Invo app |
-| `WALLET_ADDRESS` | Permanent | Never changes |
-
-The system auto-refreshes short-lived access tokens (10-min TTL) using the refresh token. No manual token management after initial setup.
-
-## Reverse-Engineered API Surface
-
-### Invo REST API (`api.invoapp.com`)
-
-All requests use `Authorization: Bearer <jwt>`, `Content-Type: application/json`, `x-app-version: 0.0.75`, `x-platform: web`.
+## Project structure
 
 ```
-GET  /v1_0/auth/refresh_token           → Refresh access token (10-min → 350-day cycle)
-POST /v1_0/trending/get_portfolios_pl   → Discover traders (filters: trending, all, user)
-POST /v1_0/trending/get_users           → Trending users
-POST /v1_0/posts/get_feed               → Social feed (filters: trending, following, all)
-POST /v1_0/users/follow                 → Follow user
-POST /v1_0/users/unfollow               → Unfollow user
-POST /dex/account/ready                 → Account readiness check
-POST /dex/trade                         → Trade status polling
-POST /dex/position/create               → Record open in Invo wallet
-POST /dex/position/close                → Record close in Invo wallet
-GET  /investment/status/:id             → Investment status
+invo-copy-trader/
+├── .env                    # Secrets (never commit)
+├── copy-config.json        # Copy targets + HL settings
+├── README.md               # This file (overview)
+├── README-TECH.md          # Technical reference for developers/AI
+├── package.json
+├── data/
+│   ├── followed.json       # Traders to fetch from Invo
+│   ├── summary.json        # Last fetcher snapshot timestamp
+│   ├── invo-poll.lock      # Single fetcher lock
+│   ├── copy/
+│   │   ├── state.json      # Copy records, ignoredBaseIds
+│   │   ├── copy-log.csv    # All copy actions
+│   │   ├── alerts.log      # Alerts (watchdog, skips, errors)
+│   │   └── copy-bot.heartbeat.json
+│   └── traders/
+│       └── {trader}/{portfolio}/
+│           ├── open/           # One JSON per live position
+│           ├── closed/         # Positions removed from open list
+│           ├── open.csv        # Rewritten every poll
+│           └── closed.csv      # Append-only close history
+└── src/
+    ├── env.ts
+    ├── invo-client.ts
+    ├── hl-client.ts
+    ├── lib/
+    │   ├── copy-engine.ts      # Core: open/close/resize/baseline
+    │   ├── copy-state.ts
+    │   ├── copy-config.ts
+    │   ├── copy-log.ts
+    │   ├── copy-heartbeat.ts
+    │   ├── invo-sync.ts        # Fetcher sync logic
+    │   ├── portfolio-store.ts  # Disk layout for positions
+    │   └── ...
+    └── commands/
+        ├── fetch-live-opens.ts # Terminal 1
+        ├── copy-bot.ts         # Terminal 2
+        ├── watch-copy-bot.ts   # Terminal 3
+        ├── close-manual.ts     # Emergency: close all HL
+        ├── trade.ts / close.ts # Manual HL orders
+        └── ...
 ```
 
-### Hyperliquid Exchange
+---
 
-Accessed via the `hyperliquid` npm SDK with phantom agent signing:
+## Data on disk
 
+### Position files
+
+- **`open/{COIN}__{baseId}.json`** — one file per open Invo position (`baseId` is the stable UUID).
+- **`open.csv`** — table snapshot; rewritten every poll.
+- **`closed/`** — position left Invo's open list; moved here once.
+- **`closed.csv`** — append-only close log.
+
+### Key `open.csv` columns
+
+| Column | Meaning |
+|--------|---------|
+| `coin` | Ticker (BTC, ETH, kSHIB, …) |
+| `direction` | `long` or `short` |
+| `leverage` | e.g. 20 = 20x |
+| `entrySize` | **% of portfolio** on Invo — used for our sizing |
+| `entryPrice` / `currentPrice` | Invo prices |
+| `priceTarget` / `stopLoss` | TP / SL if set |
+| `baseId` | UUID — **primary key** for copy tracking |
+
+### Copy state (`data/copy/state.json`)
+
+- `ignoredBaseIds` — Invo positions we will never copy (baseline + manual close).
+- `copies` — map of `baseId` → `CopyRecord` (`open` | `closed` | `skipped` | `dead`).
+- `baselinedAt` — last baseline timestamp.
+
+---
+
+## Commands reference
+
+```powershell
+npx tsx src/commands/<file>.ts [options]
 ```
-POST api.hyperliquid.xyz/info  → Meta, prices, positions
-SDK  exchange.placeOrder()     → IOC limit orders with builder fee
-SDK  exchange.updateLeverage() → Set leverage (isolated)
+
+### Core (three-terminal stack)
+
+| Command | Purpose |
+|---------|---------|
+| `fetch-live-opens.ts --watch` | Poll Invo, write `data/traders/` |
+| `copy-bot.ts --watch` | Copy to HL testnet from disk |
+| `watch-copy-bot.ts` | Alert if copy-bot unhealthy |
+
+### Hyperliquid
+
+| Command | Purpose |
+|---------|---------|
+| `hl-setup-check.ts` | Network, balance, positions |
+| `trade.ts SOL long 0.01 2` | Manual open |
+| `close.ts SOL` | Manual close one coin |
+| `close-manual.ts` | Close **all** HL positions + reset copy state |
+
+### Invo monitoring
+
+| Command | Purpose |
+|---------|---------|
+| `fetch-live-opens.ts` | One-time fetch |
+| `fetch-live-opens.ts --trader booobsas` | One trader only |
+| `fetch-live-opens.ts --watch --interval 30` | 30s poll interval |
+| `sync-traders.ts` | Feed history sync |
+
+### Utilities
+
+| Command | Purpose |
+|---------|---------|
+| `preflight.ts` | Env + Invo + HL checks |
+| `verify.ts` | Endpoint health |
+| `discover.ts` / `follow.ts` | Invo trader discovery |
+
+---
+
+## First-time setup
+
+### Prerequisites
+
+- Node.js 18+ (22+ recommended)
+- Invo account + refresh token
+- Hyperliquid testnet wallet + API key (for copy trading)
+
+### Install
+
+```powershell
+cd "C:\Users\ADMIN\Desktop\Invo - Where Traders Are Made\invo-copy-trader"
+npm install
+copy .env.example .env
 ```
 
-Builder fee: `0x557edb253b1d7ed5f15b248a5a3fd919fa5d3c81` at 0.35% — required on all orders for Invo compatibility.
+Edit `.env` with `INVO_REFRESH_TOKEN` and HL testnet keys.
 
-## Discovery Criteria
+### Invo token
 
-The `discover.ts` scanner applies strict quality filters (configurable via the agent):
+1. Log in at https://app.invoapp.com
+2. DevTools → Application → Local Storage → extract refresh token (see your setup notes for decrypt if encrypted)
+3. Put in `.env` as `INVO_REFRESH_TOKEN=eyJ...`
 
+### HL testnet
+
+1. https://app.hyperliquid-testnet.xyz — claim mock USDC (faucet/drip)
+2. API page → Generate API wallet → Authorize
+3. `.env`: `HL_NETWORK=testnet`, `WALLET_ADDRESS` (main), `HL_AGENT_KEY` (API wallet private key)
+4. Verify: `npm run hl-check`
+
+### First fetch
+
+```powershell
+npx tsx src/commands/fetch-live-opens.ts --refresh
 ```
-closedPositions  >= 100     # Proven track record
-daysActive       >= 90      # Not a flash-in-the-pan
-winRate          >= 75%     # Consistent performer
-percentChange    >= 500%    # Significant returns
-winLossRatio     >= 3.0     # Disciplined risk management
-liquidated       == false   # Never blown up
+
+Check `data/traders/booobsas/$100 ➡️ $1M/open.csv` and `data/summary.json`.
+
+---
+
+## Daily usage & manual tools
+
+### Watch only (no HL orders)
+
+```powershell
+npm run watch
 ```
 
-Composite score: `W/L*20 + WinRate*1.5 + P&L*0.01 + Streak*2 - Losses*0.5`
+### Full copy stack
 
-## Asset Reference
+Start all three terminals (see [How to run](#how-to-run-three-terminals)).
 
-| Asset | HL Index | szDecimals | Max Leverage |
-|-------|----------|------------|-------------|
-| BTC   | 0        | 5          | 40x         |
-| ETH   | 1        | 4          | 25x         |
-| SOL   | 5        | 2          | 20x         |
-| DOGE  | 12       | 0          | 10x         |
-| XRP   | 25       | 0          | 20x         |
+### Emergency: close everything on HL
 
-## Known Issues & Workarounds
+```powershell
+npx tsx src/commands/close-manual.ts
+```
 
-| Issue | Cause | Fix |
-|-------|-------|-----|
-| `reduce_only: true` breaks signing | Phantom agent EIP-712 signature recovery fails | Always use `reduce_only: false` |
-| `grouping: 'normalTpsl'` breaks signing | Multi-order grouping causes wrong signer | Always use `grouping: 'na'` |
-| `"Unknown asset: SOL"` | SDK expects `-PERP` suffix | Use `SOL-PERP`, `BTC-PERP`, etc. (handled in `hl-client.ts`) |
-| `"Price must be divisible by tick size"` | Too many decimal places | Use `toPrecision(5)` on prices (handled in `hl-client.ts`) |
-| `"Order has invalid size"` | Wrong szDecimals for the asset | Check asset table above |
-| `"Order price cannot be more than 95% away"` | Position too large for available margin | Reduce size |
-| `/dex/trade` returns 404 | Using your own `baseShortId` instead of the trader's | Use the trader's `baseShortId` from their feed signal |
-| Agent key expired | ~90-day validity | Re-authorize in Invo app |
-| Feed signal delay | Trade posts appear 1-10s after execution | Acceptable for copy trading (not HFT) |
+Closes all HL positions, marks copies `dead`, adds all current Invo opens to `ignoredBaseIds`. After this, only **new** Invo trades are copied.
 
-## Tech Stack
+### Fresh trader data
 
-- **Runtime**: Node.js + TypeScript (via tsx)
-- **HL SDK**: `hyperliquid` (^1.7.7) — handles EIP-712 signing, msgpack, order placement
-- **HTTP**: Native `fetch()` — no axios, no browser
-- **Auth**: JWT auto-refresh via reverse-engineered `/v1_0/auth/refresh_token` endpoint
-- **Signal detection**: Invo social feed polling with verified trade filtering
-- **Agent integration**: Claude Code skill (`/invo-copy-trade`) for autonomous operation
+Delete contents of `data/traders/` and `data/summary.json`. Keep `data/followed.json` and `copy-config.json`.
 
-## Disclaimer
+### Rate limits
 
-> **USE AT YOUR OWN RISK.** This software is provided "as is", without warranty of any kind, express or implied. The authors and contributors are **not responsible** for any financial losses, liquidations, missed trades, or damages of any kind arising from the use of this software.
+Default 15s Invo poll avoids 429 errors. Avoid multiple fetchers or `--refresh` in watch mode unless needed.
 
-**By using this software, you acknowledge and agree that:**
+---
 
-1. **Not Financial Advice.** Nothing in this repository constitutes financial advice, investment advice, trading advice, or any other sort of professional advice. You are solely responsible for your own trading decisions.
+## Known limitations
 
-2. **No Guaranteed Returns.** Past performance of any trader, strategy, or signal does not guarantee future results. Copy trading is inherently risky and you can lose your entire investment.
+| # | Limitation |
+|---|------------|
+| 1 | **Testnet prices ≠ Invo prices** — fills and PnL will differ from what the trader sees |
+| 2 | **~15s polling gap** — very fast open/close may be missed between polls |
+| 3 | **$10 minimum** — tiny trader sizes are bumped up on HL |
+| 4 | **Isolated margin** — small positions can liquidate on volatile moves |
+| 5 | **Coins not on HL** — skipped (e.g. some tickers only on Invo) |
+| 6 | **Fetcher may still poll all traders in `followed.json`** — only `copy-config.json` portfolios are traded |
+| 7 | **Watchdog alerts only** — does not restart copy-bot automatically |
+| 8 | **Mainnet blocked** — copy-bot refuses `HL_NETWORK=mainnet` until intentionally changed |
 
-3. **Experimental Software.** This project relies on reverse-engineered, undocumented APIs that may change, break, or become unavailable at any time without notice. There is no guarantee of uptime, accuracy, or reliability.
+---
 
-4. **API & Protocol Risk.** This software interacts with third-party platforms (Invo, Hyperliquid) over which the authors have no control. API changes, outages, rate limits, or account restrictions imposed by these platforms are outside the scope of this project.
+## Troubleshooting
 
-5. **Smart Contract & DeFi Risk.** Hyperliquid is a decentralized exchange. Transactions are on-chain and irreversible. You accept all risks associated with DeFi protocols, including but not limited to smart contract bugs, oracle failures, and network congestion.
+| Problem | What to do |
+|---------|------------|
+| `Missing INVO_REFRESH_TOKEN` | Add token to `.env` |
+| Copy-bot copies old trades on restart | Should not happen with baseline — check `ignoredBaseIds` in `state.json` |
+| `429` rate limit | Increase `--interval 30`, stop duplicate fetchers |
+| No new fetcher snapshot | Keep Terminal 1 running; check `data/summary.json` `fetchedAt` |
+| Watchdog false alert on startup | Wait 90s grace; start copy-bot before or right after watchdog |
+| Stale pid in heartbeat | Copy-bot clears heartbeat on start; restart copy-bot |
+| HL balance $0 | Claim testnet USDC; verify `WALLET_ADDRESS` |
+| Coin skipped "not on HL" | Normal — coin not in HL universe |
+| Bot hung overnight | 90s order timeout added; check `alerts.log` and restart |
 
-6. **No Affiliation.** This project is **not affiliated with, endorsed by, or associated with** Invo or Hyperliquid in any way. All trademarks belong to their respective owners.
+---
 
-7. **Regulatory Compliance.** You are solely responsible for ensuring that your use of this software complies with all applicable laws and regulations in your jurisdiction. Copy trading and leveraged trading may be restricted or prohibited in certain regions.
+## Security & disclaimer
 
-8. **Key & Credential Security.** You are responsible for safeguarding your private keys, agent keys, and tokens. The authors are not liable for any unauthorized access or loss of funds resulting from compromised credentials.
+- **Never commit** `.env`, private keys, or refresh tokens.
+- `HL_AGENT_KEY` can trade but not withdraw (HL design) — still treat as secret.
+- **Not affiliated** with Invo or Hyperliquid.
 
-9. **Leverage Risk.** Leveraged trading amplifies both gains and losses. Positions can be liquidated, resulting in total loss of margin. Understand leverage before using this software.
+**Use at your own risk.** Leveraged trading can lose money quickly. Unofficial APIs may change. Past trader performance does not guarantee future results. You are responsible for laws in your region and safeguarding credentials.
 
-10. **No Warranty of Accuracy.** Discovery scores, win rates, P&L figures, and all other metrics are derived from third-party data and may be inaccurate, delayed, or incomplete.
+---
 
-**If you do not agree with any of the above, do not use this software.**
+## Quick reference
 
-## License
+```powershell
+npm install
+npm run watch      # Terminal 1 — Invo
+npm run copy       # Terminal 2 — HL copy
+npm run watchdog   # Terminal 3 — alerts
+npm run hl-check   # HL balance check
+```
 
-MIT — see above disclaimer. The MIT license's "AS IS" clause applies in full.
+**Technical deep-dive:** [README-TECH.md](./README-TECH.md)

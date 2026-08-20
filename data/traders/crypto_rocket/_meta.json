@@ -1,0 +1,26 @@
+{
+  "trader": "crypto_rocket",
+  "traderId": "4345a4d6-3639-4e43-b43e-a1d122685239",
+  "createdAt": "2026-08-17T08:08:14.632Z",
+  "portfolios": [
+    {
+      "portfolioTitle": "Main",
+      "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+      "openCount": 2,
+      "updatedAt": "2026-08-20T07:48:25.763Z"
+    },
+    {
+      "portfolioTitle": "Casino",
+      "portfolioId": "f2887379-b0fc-4676-bd33-073befacc17c",
+      "openCount": 2,
+      "updatedAt": "2026-08-20T07:48:25.763Z"
+    },
+    {
+      "portfolioTitle": "Swings",
+      "portfolioId": "2a922a1e-79e8-4753-899b-9df65d1a2dc9",
+      "openCount": 5,
+      "updatedAt": "2026-08-20T07:48:25.763Z"
+    }
+  ],
+  "updatedAt": "2026-08-20T07:48:25.763Z"
+}

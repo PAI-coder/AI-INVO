@@ -1,0 +1,29 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "CAKE",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 1.5099901364998907,
+  "currentPrice": 1.6025,
+  "entrySize": 2.0060137914814677,
+  "positionSize": 0.0200819229,
+  "liquidationPrice": 1.732370466193168,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "96aidyuhc7",
+  "baseId": "98f8e0a2-e5b0-473c-a1f7-9d20040cae77",
+  "updatedAt": "2026-08-19T19:30:26.740Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "entrySim": 5325.441440298474,
+    "entrySize": 1.500407601942132,
+    "entryPrice": 1.4810898961248236,
+    "simIncrease": true,
+    "simDifference": 2168.247626027499,
+    "liquidationPrice": 1.6939192024957324,
+    "livePriceAtChange": 1.586,
+    "percentDifference": 0.6836700832512721
+  }
+}

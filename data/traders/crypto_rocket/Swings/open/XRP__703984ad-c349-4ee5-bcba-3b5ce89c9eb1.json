@@ -1,0 +1,22 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Swings",
+  "portfolioId": "2a922a1e-79e8-4753-899b-9df65d1a2dc9",
+  "coin": "XRP",
+  "direction": "long",
+  "leverage": 5,
+  "entryPrice": 0.99822,
+  "currentPrice": 1.11345,
+  "entrySize": 4.999868234957961,
+  "positionSize": 0.072406973,
+  "liquidationPrice": 0.819076923076923,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "Xquo6BPIRZ",
+  "baseId": "703984ad-c349-4ee5-bcba-3b5ce89c9eb1",
+  "updatedAt": "2026-08-14T21:26:25.918Z",
+  "fetchedAt": "2026-08-20T07:48:23.861Z",
+  "changes": {
+    "isAdded": false
+  }
+}

@@ -1,0 +1,3 @@
+trader,portfolio,coin,direction,leverage,entryPrice,currentPrice,entrySize,positionSize,liquidationPrice,priceTarget,stopLoss,baseShortId,baseId,updatedAt,fetchedAt
+crypto_rocket,Main,ZEC,short,8,563.832651444548,559.185,1.2984116702722854,0.0137584178,634.3117328751165,,,ave9t6KdcW,63359a1c-3211-497b-8ae9-3ef31343f33f,2026-08-19T21:39:46.903Z,2026-08-20T07:48:23.861Z
+crypto_rocket,Main,BTC,short,20,68347.98133959198,69592,1.2269748586319367,0.0077401125,71281.9552320139,,,XoyUcIiWAC,30d7d92e-7166-4789-8fa2-f724402d7a45,2026-08-19T15:29:36.599Z,2026-08-20T07:48:23.861Z

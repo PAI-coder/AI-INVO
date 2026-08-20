@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Main",
+  "portfolioId": "99075659-42b9-4d1b-902e-fbb75f1a2664",
+  "coin": "SOL",
+  "direction": "short",
+  "leverage": 20,
+  "entryPrice": 75.722,
+  "currentPrice": 75.4,
+  "entrySize": 0.9999167149225198,
+  "positionSize": 0.0108149371,
+  "liquidationPrice": 77.58117073170732,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "OrUCFjWh0u",
+  "baseId": "690755ac-0ade-48e6-9626-379e6058686b",
+  "updatedAt": "2026-08-17T10:47:48.145Z",
+  "fetchedAt": "2026-08-17T12:27:16.079Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-17T12:27:16.079Z",
+  "closingPrice": 75.4
+}

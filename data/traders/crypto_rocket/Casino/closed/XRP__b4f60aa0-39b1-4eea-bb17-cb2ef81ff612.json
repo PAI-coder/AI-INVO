@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Casino",
+  "portfolioId": "f2887379-b0fc-4676-bd33-073befacc17c",
+  "coin": "XRP",
+  "direction": "long",
+  "leverage": 8,
+  "entryPrice": 1.00535,
+  "currentPrice": 1.0622,
+  "entrySize": 9.999291379670078,
+  "positionSize": 0.1343674282,
+  "liquidationPrice": 0.9021025641025642,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "IzO41C55qD",
+  "baseId": "b4f60aa0-39b1-4eea-bb17-cb2ef81ff612",
+  "updatedAt": "2026-08-13T12:55:53.926Z",
+  "fetchedAt": "2026-08-19T15:30:18.612Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-19T15:30:18.612Z",
+  "closingPrice": 1.0622
+}

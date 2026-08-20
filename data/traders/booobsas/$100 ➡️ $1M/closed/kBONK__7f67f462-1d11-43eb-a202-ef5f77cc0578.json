@@ -1,0 +1,24 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "kBONK",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 0.002456,
+  "currentPrice": 0.002444,
+  "entrySize": 0.09999204624277047,
+  "positionSize": 0.001051349,
+  "liquidationPrice": 0.0025823809523809528,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "OrxL9N8bjy",
+  "baseId": "7f67f462-1d11-43eb-a202-ef5f77cc0578",
+  "updatedAt": "2026-08-20T03:09:53.718Z",
+  "fetchedAt": "2026-08-20T04:08:27.739Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-20T04:08:27.739Z",
+  "closingPrice": 0.002444
+}

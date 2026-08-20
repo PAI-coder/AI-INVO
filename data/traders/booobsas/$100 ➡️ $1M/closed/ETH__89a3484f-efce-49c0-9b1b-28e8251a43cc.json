@@ -1,0 +1,31 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "ETH",
+  "direction": "short",
+  "leverage": 25,
+  "entryPrice": 1921.5601334731693,
+  "currentPrice": 1958,
+  "entrySize": 3.002172290093123,
+  "positionSize": 0.0197927925,
+  "liquidationPrice": 1961.259444478283,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "zjkdp6CA7k",
+  "baseId": "89a3484f-efce-49c0-9b1b-28e8251a43cc",
+  "updatedAt": "2026-08-19T12:46:41.577Z",
+  "fetchedAt": "2026-08-19T14:55:18.988Z",
+  "changes": {
+    "entrySim": 6955.308096481693,
+    "entrySize": 2.0000219006282913,
+    "entryPrice": 1912.052634356568,
+    "simIncrease": true,
+    "simDifference": 5092.200567423719,
+    "liquidationPrice": 1949.600772930183,
+    "livePriceAtChange": 1934.7,
+    "percentDifference": 1.5306107756581346
+  },
+  "closedAt": "2026-08-19T14:55:18.988Z",
+  "closingPrice": 1958
+}

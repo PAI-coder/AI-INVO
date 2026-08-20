@@ -1,0 +1,22 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "kSHIB",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 0.004832,
+  "currentPrice": 0.004814,
+  "entrySize": 0.09999007721402947,
+  "positionSize": 0.0010369058,
+  "liquidationPrice": 0.005067333333333333,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "PWvJnmmQux",
+  "baseId": "5cffbd57-42bc-429e-bdcd-b34ba9558a23",
+  "updatedAt": "2026-08-20T07:06:57.084Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "isAdded": false
+  }
+}

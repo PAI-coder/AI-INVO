@@ -1,0 +1,29 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "SOL",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 84.94284334041585,
+  "currentPrice": 85.982,
+  "entrySize": 0.8501102489686132,
+  "positionSize": 0.0083850091,
+  "liquidationPrice": 91.38394819029284,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "HYr2AXArBg",
+  "baseId": "3f4ac212-efe6-4551-a804-2f71cb15be53",
+  "updatedAt": "2026-08-20T07:25:41.056Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "entrySim": 1027.1396237997862,
+    "entrySize": 0.3003702501901628,
+    "entryPrice": 83.28147557783385,
+    "simIncrease": true,
+    "simDifference": 1882.6697271821317,
+    "liquidationPrice": 89.63945136989612,
+    "livePriceAtChange": 85.8775,
+    "percentDifference": 0.6180324013403107
+  }
+}

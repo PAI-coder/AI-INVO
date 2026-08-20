@@ -1,0 +1,31 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "FARTCOIN",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 0.14865997082557372,
+  "currentPrice": 0.15598,
+  "entrySize": 3.4998976964043345,
+  "positionSize": 0.0257514013,
+  "liquidationPrice": 0.15622021308764472,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "64uVtthHAb",
+  "baseId": "f117566c-1626-46b9-875f-1e3fc354dfe9",
+  "updatedAt": "2026-08-19T15:45:45.719Z",
+  "fetchedAt": "2026-08-19T21:06:17.672Z",
+  "changes": {
+    "entrySim": 12026.521409738572,
+    "entrySize": 2.995786031344009,
+    "entryPrice": 0.14750263819912396,
+    "simIncrease": true,
+    "simDifference": 3426.3805600594114,
+    "liquidationPrice": 0.15512842945291364,
+    "livePriceAtChange": 0.15287,
+    "percentDifference": 1.0826349352362914
+  },
+  "closedAt": "2026-08-19T21:06:17.672Z",
+  "closingPrice": 0.15598
+}

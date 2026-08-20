@@ -1,0 +1,29 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "AERO",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.4429625079740066,
+  "currentPrice": 0.46406,
+  "entrySize": 0.3001045709067795,
+  "positionSize": 0.0027386097,
+  "liquidationPrice": 0.5074112560165083,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "RQa9UREawT",
+  "baseId": "238b8825-4ff1-48df-a2b3-cb8a67b55100",
+  "updatedAt": "2026-08-20T03:18:58.823Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "entrySim": 316.4229805586755,
+    "entrySize": 0.10004129916217305,
+    "entryPrice": 0.4268,
+    "simIncrease": true,
+    "simDifference": 656.7276747995411,
+    "liquidationPrice": 0.4878171428571428,
+    "livePriceAtChange": 0.451195,
+    "percentDifference": 0.21448319003596059
+  }
+}

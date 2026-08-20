@@ -1,0 +1,24 @@
+{
+  "trader": "archiduc",
+  "portfolioTitle": "Scalp Company",
+  "portfolioId": "3de730c5-d1b9-4e5d-be79-66375fc02910",
+  "coin": "ETH",
+  "direction": "short",
+  "leverage": 19,
+  "entryPrice": 1905.15,
+  "currentPrice": 1898.4,
+  "entrySize": 0.9999957632411267,
+  "positionSize": 0.0106577983,
+  "liquidationPrice": 1965.94427244582,
+  "priceTarget": 1898,
+  "stopLoss": null,
+  "baseShortId": "k6zjgv4MXS",
+  "baseId": "826f57ef-861a-41c9-9607-7c35ed17db31",
+  "updatedAt": "2026-08-17T20:30:12.967Z",
+  "fetchedAt": "2026-08-18T02:26:08.911Z",
+  "changes": {
+    "priceTarget": null
+  },
+  "closedAt": "2026-08-18T02:26:08.911Z",
+  "closingPrice": 1898.4
+}

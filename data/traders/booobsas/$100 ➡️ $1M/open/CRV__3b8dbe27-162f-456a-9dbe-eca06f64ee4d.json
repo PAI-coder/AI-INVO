@@ -1,0 +1,22 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "CRV",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 0.2672,
+  "currentPrice": 0.26791,
+  "entrySize": 0.09999693196021046,
+  "positionSize": 0.000975729,
+  "liquidationPrice": 0.27980857142857146,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "5zShno3XZS",
+  "baseId": "3b8dbe27-162f-456a-9dbe-eca06f64ee4d",
+  "updatedAt": "2026-08-20T06:13:07.627Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "isAdded": false
+  }
+}

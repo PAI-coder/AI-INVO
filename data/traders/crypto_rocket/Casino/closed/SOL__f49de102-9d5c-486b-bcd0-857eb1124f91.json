@@ -1,0 +1,24 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Casino",
+  "portfolioId": "f2887379-b0fc-4676-bd33-073befacc17c",
+  "coin": "SOL",
+  "direction": "short",
+  "leverage": 15,
+  "entryPrice": 81.5,
+  "currentPrice": 83.344,
+  "entrySize": 5.006484068787055,
+  "positionSize": 0.0352534831,
+  "liquidationPrice": 84.8119674796748,
+  "priceTarget": 79.3,
+  "stopLoss": 83.5,
+  "baseShortId": "6YoJnsu95q",
+  "baseId": "f49de102-9d5c-486b-bcd0-857eb1124f91",
+  "updatedAt": "2026-08-19T17:10:41.697Z",
+  "fetchedAt": "2026-08-19T20:51:09.551Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-19T20:51:09.551Z",
+  "closingPrice": 83.344
+}

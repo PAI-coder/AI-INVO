@@ -1,0 +1,24 @@
+{
+  "trader": "archiduc",
+  "portfolioTitle": "Scalp Company",
+  "portfolioId": "3de730c5-d1b9-4e5d-be79-66375fc02910",
+  "coin": "HEMI",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.007375,
+  "currentPrice": 0.007117,
+  "entrySize": 0.999993773757685,
+  "positionSize": 0.0110360823,
+  "liquidationPrice": 0.008447999999999999,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "FYQpNMnTpr",
+  "baseId": "25643f98-38dc-47a8-8c6b-62feb4a487ad",
+  "updatedAt": "2026-08-18T08:42:51.597Z",
+  "fetchedAt": "2026-08-18T08:46:35.869Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-18T08:46:35.869Z",
+  "closingPrice": 0.007117
+}

@@ -1,0 +1,24 @@
+{
+  "trader": "archiduc",
+  "portfolioTitle": "Scalp Company",
+  "portfolioId": "3de730c5-d1b9-4e5d-be79-66375fc02910",
+  "coin": "VINE",
+  "direction": "short",
+  "leverage": 3,
+  "entryPrice": 0.006705,
+  "currentPrice": 0.006543,
+  "entrySize": 1,
+  "positionSize": 0.0107115722,
+  "liquidationPrice": 0.0076799999999999985,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "EpPl6wnJjT",
+  "baseId": "e01af821-c10a-499c-8322-0f6a4001c5b4",
+  "updatedAt": "2026-08-18T16:26:38.513Z",
+  "fetchedAt": "2026-08-18T16:27:54.515Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-18T16:27:54.515Z",
+  "closingPrice": 0.006543
+}

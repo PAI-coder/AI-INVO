@@ -1,0 +1,22 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "POL",
+  "direction": "short",
+  "leverage": 5,
+  "entryPrice": 0.080577,
+  "currentPrice": 0.08108,
+  "entrySize": 0.4999980130210849,
+  "positionSize": 0.0052998034,
+  "liquidationPrice": 0.0879032727272727,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "OBUAWdtnOa",
+  "baseId": "3a630468-2b7c-43ab-b860-4756e51586fc",
+  "updatedAt": "2026-08-18T09:18:15.560Z",
+  "fetchedAt": "2026-08-20T07:48:04.091Z",
+  "changes": {
+    "isAdded": false
+  }
+}

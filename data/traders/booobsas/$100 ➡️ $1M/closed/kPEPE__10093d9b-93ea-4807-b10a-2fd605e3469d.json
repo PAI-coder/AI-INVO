@@ -1,0 +1,24 @@
+{
+  "trader": "booobsas",
+  "portfolioTitle": "$100 ➡️ $1M",
+  "portfolioId": "1c4f8dfd-3e4c-4378-b6fd-a0f694c10fd3",
+  "coin": "kPEPE",
+  "direction": "short",
+  "leverage": 10,
+  "entryPrice": 0.002697,
+  "currentPrice": 0.002824,
+  "entrySize": 0.10003302776827336,
+  "positionSize": 0.000555446,
+  "liquidationPrice": 0.0028296190476190474,
+  "priceTarget": null,
+  "stopLoss": null,
+  "baseShortId": "Ymesq0H0id",
+  "baseId": "10093d9b-93ea-4807-b10a-2fd605e3469d",
+  "updatedAt": "2026-08-19T18:07:28.134Z",
+  "fetchedAt": "2026-08-19T21:07:34.004Z",
+  "changes": {
+    "isAdded": false
+  },
+  "closedAt": "2026-08-19T21:07:34.004Z",
+  "closingPrice": 0.002824
+}

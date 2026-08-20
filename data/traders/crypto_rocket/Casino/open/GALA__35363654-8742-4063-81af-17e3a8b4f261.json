@@ -1,0 +1,22 @@
+{
+  "trader": "crypto_rocket",
+  "portfolioTitle": "Casino",
+  "portfolioId": "f2887379-b0fc-4676-bd33-073befacc17c",
+  "coin": "GALA",
+  "direction": "long",
+  "leverage": 3,
+  "entryPrice": 0.001407,
+  "currentPrice": 0.001411,
+  "entrySize": 2.0000915973059543,
+  "positionSize": 0.0198353684,
+  "liquidationPrice": 0.0011232000000000002,
+  "priceTarget": 0.00146,
+  "stopLoss": null,
+  "baseShortId": "coqJKlOJ5i",
+  "baseId": "35363654-8742-4063-81af-17e3a8b4f261",
+  "updatedAt": "2026-08-18T05:47:00.260Z",
+  "fetchedAt": "2026-08-20T07:48:23.861Z",
+  "changes": {
+    "priceTarget": null
+  }
+}
